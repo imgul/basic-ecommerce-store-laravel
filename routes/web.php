@@ -14,6 +14,6 @@ use App\Http\Controllers\FrontendController;
 |
 */
 
-Route::get('/', [FrontendController::class, 'index'])->name('home');
-Route::get('/login', [FrontendController::class, 'login'])->name('login');
-Route::post('/login', [FrontendController::class, 'login'])->name('login');
+Route::get('/', [FrontendController::class, 'index']);
+Route::get('/login', [FrontendController::class, 'login']);
+Route::post('/login', [FrontendController::class, 'loginRequest']);
