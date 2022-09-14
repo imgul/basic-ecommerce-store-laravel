@@ -7,19 +7,18 @@
     <div class="container">
         <div class="row justify-content-center align-items-center g-5">
             <div class="col">
-                {{-- Error Box --}}
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-
                 {{-- Login Form --}}
-                <form action="/login" method="POST">
+                <form action="{{ url('/') }}/login" method="POST">
+                    {{-- Alert --}}
+                    @if ($errors->any())
+                        @foreach ($errors->all() as $error)
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                <strong>Error!</strong> {{ $error }}
+                            </div>
+                        @endforeach
+                    @endif
+
                     @csrf
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>

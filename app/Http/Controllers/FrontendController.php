@@ -24,7 +24,7 @@ class FrontendController extends Controller
 
         if(!$user || !Hash::check($req->password, $user->password))
         {
-            return "Username or password is not matched";
+            return back()->withErrors(["Invalid Cardentials!"]);
         }
         else
         {
